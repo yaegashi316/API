@@ -1,5 +1,4 @@
-from flask import Flask, request
-from flask import render_template
+from flask import Flask, request, render_template
 import requests
 
 app = Flask(__name__)
@@ -15,9 +14,7 @@ def post():
     animal = request.form["animal"]
     if animal == "cat":
         response = requests.get("https://api.thecatapi.com/v1/images/search")
-
         res = response.json()
-
         photo = res[0]["url"]
 
     elif animal == "dog":
