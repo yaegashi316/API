@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request
 from flask import render_template
 import requests
 
@@ -15,11 +15,11 @@ def post():
     animal = request.form["animal"]
     if animal == "cat":
         response = requests.get("https://api.thecatapi.com/v1/images/search")
-        # urlを受け取る
+
         res = response.json()
-        # jsonで
+
         photo = res[0]["url"]
-        # 配列？
+
     elif animal == "dog":
         response = requests.get("https://dog.ceo/api/breeds/image/random")
         res = response.json()
